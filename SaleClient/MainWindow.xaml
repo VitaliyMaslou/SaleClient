@@ -1,0 +1,61 @@
+﻿<Window x:Class="SaleClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:encoding="UTF-8"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaleClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FFFFF5F5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="20">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Дата начала"/>
+                <TextBox Text="5/1/2008 8:30:52" x:Name="TbStart"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Label Content="Дата окончания"/>
+                <TextBox Text="9/1/2008 8:30:52" x:Name="TbEnd"/>
+            </StackPanel>
+            <Button Click="Button_Click"/>
+        </StackPanel>
+
+        <Grid Grid.Row="2" Margin="20">
+            <ComboBox Name="cmbFirmProd" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"></ComboBox>
+
+        </Grid>
+
+
+        <ListView Grid.Row="1" Margin="20 0 0 0" x:Name="listD" ItemsSource="{Binding qwe, Mode=OneWay}" Width="400" HorizontalAlignment="Left">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+
+                        <TextBlock Text="{Binding Client.LastName, StringFormat={}{Utf-8}}"></TextBlock>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="536,0,90,0" Width="166">
+            <Label Content="Сформировать чек" Width="114"/>
+
+            <Border  BorderThickness="1" BorderBrush="Black"  Width="159" Background="White" >
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,-22,0" >
+                <Image Height="50" Width="50" Source="Res/WordIcon.png" Margin="10 0 20 0"/>
+                <Image Height="50" Width="50" Source="Res/ExcelIcon.png" Margin="10 0 20 0"/>
+            </StackPanel>
+        </Border>
+        </StackPanel>
+
+    </Grid>
+</Window>
